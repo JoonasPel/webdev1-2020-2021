@@ -9,4 +9,4 @@ function hellonode(array)
     console.log(first_element,last_element);
 }
 
-module.exports = hellonode
+module.exports = hellonode;
