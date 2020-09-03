@@ -6,9 +6,9 @@ console.log(ver);
 function hellonode(array)
 {
     let first_element = _.first(array);
-    let last_element = _.last(array)
-        
-    return first_element, last_element
+    let last_element = _.last(array);
+
+    return first_element + last_element
 }
 
 module.exports = hellonode;
