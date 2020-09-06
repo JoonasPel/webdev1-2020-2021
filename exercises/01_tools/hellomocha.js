@@ -42,7 +42,12 @@ module.exports = {
 
         answer = answer.toLowerCase();
 
-        if (answer.includes('hello')) {
+        if (answer.includes('hello') && answer.includes('mocha!')) {
+            points += maxPoints;
+        }
+
+        if ((answer.includes('hello') && !answer.includes('mocha!'))
+            || (!answer.includes('hello') && answer.includes('mocha')) ) {
             points += maxPoints / 2;
         }
 
