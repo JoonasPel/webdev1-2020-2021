@@ -5,13 +5,15 @@ var server = http.createServer(function(req, res){
     res.writeHead(200, { 'Content-type' : 'text/plain' });
 
     var body = [];
-    req.on('data', (chunk) => {
+    req.on('error', (err) => {
+        console.error(err);
+    }).on('data', (chunk) => {
         body.push(chunk);
     }).on('end', () => {
         body = Buffer.concat(body).toString();
     });
 
-    res.write(body);
+    res.write(JSON.stringify(body));
     res.end();
 });
 
