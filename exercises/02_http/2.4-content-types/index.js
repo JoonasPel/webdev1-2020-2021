@@ -9,37 +9,33 @@ var server = http.createServer(function(req, res){
 
     var accept_header = req.headers['accept'];
 
-    if(accept_header == 'text/html') {
+    if(accept_header == 'text/plain' || accept_header == '*/*') {
         res.writeHead(200, { 'Content-type': 'text/html'});
         fs.readFile('data.txt', (err, data) => {
             if(err) throw err;
             res.write(data);
             res.end("txt");
         });
-    }
-
-    if(accept_header == 'application/json') {
+    } else if (accept_header == 'application/json') {
         res.writeHead(200, { 'Content-type': 'application/json'});
         fs.readFile('data.json', (err, data) => {
             if(err) throw err;
             res.write(data);
             res.end("txt");
         });
-    }
-
-    if(accept_header == 'text/xml') {
+    } else if (accept_header == 'application/xml,text/xml') {
         res.writeHead(200, { 'Content-type': 'text/xml'});
         fs.readFile('data.xml', (err, data) => {
             if(err) throw err;
             res.write(data);
             res.end("txt");
         });
+    } else {
+        res.statusCode = 406;
+        res.statusMessage = 'Content type not available';
+        res.end();
     }
 
-
-    res.statusCode = 406;
-    res.statusMessage = 'Content type not available';
-    res.end();
 });
 
 server.listen(3000, '127.0.0.1');
