@@ -14,21 +14,21 @@ var server = http.createServer(function(req, res){
         fs.readFile('data.txt', (err, data) => {
             if(err) throw err;
             res.write(data);
-            res.end("txt");
+            res.end();
         });
     } else if (accept_header == 'application/json') {
         res.writeHead(200, { 'Content-type': 'application/json'});
         fs.readFile('data.json', (err, data) => {
             if(err) throw err;
             res.write(data);
-            res.end("txt");
+            res.end();
         });
     } else if (accept_header == 'application/xml,text/xml') {
         res.writeHead(200, { 'Content-type': 'text/xml'});
         fs.readFile('data.xml', (err, data) => {
             if(err) throw err;
             res.write(data);
-            res.end("txt");
+            res.end();
         });
     } else {
         res.statusCode = 406;
