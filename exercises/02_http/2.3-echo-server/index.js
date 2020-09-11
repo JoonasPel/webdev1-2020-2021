@@ -5,14 +5,12 @@ var server = http.createServer(function(req, res){
     res.writeHead(200, { 'Content-type' : 'text/plain' });
 
     var body = [];
-    req.on('error', (err) => {
-        console.error(err);
-    }).on('data', (chunk) => {
+    req.on('data', (chunk) => {
         body.push(chunk);
+    }).on('end', () => {
+        body = Buffer.concat(body).toString();
+        res.end(body);
     });
-
-    res.write(JSON.stringify(body));
-    res.end();
 });
 
 server.listen(3000, 'localhost');
