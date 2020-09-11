@@ -9,8 +9,6 @@ var server = http.createServer(function(req, res){
         console.error(err);
     }).on('data', (chunk) => {
         body.push(chunk);
-    }).on('end', () => {
-        body = Buffer.concat(body).toString();
     });
 
     res.write(JSON.stringify(body));
