@@ -27,19 +27,20 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should receive a 404 response')
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/just_an_example_random_path_to_get_a_404')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 404, and 
-        //             // b) that the response body is empty  
-        //             done();
-        //         });
-        // });
-    });
+        it('it should receive a 404 response', function(done) {
+               chai.request(server)
+                   .get('/just_an_example_random_path_to_get_a_404')
+                   .end(function(err, res) {
+                       // TODO: using the should style check that 
+                       // a) the response's HTTP response status is 404, and 
+                       // b) that the response body is empty 
+                       res.should.have.status(404);
+                       res.body.should.be.empty;              
+                       done();
+                   });
+           });
 
+           
     /*
     * Test the / route, should receive index.html
     */
@@ -50,20 +51,19 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the index.html')
-        // TODO uncomment the needed parts
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 
-        //             // b) that the response is in HTML form
-        //             // c) the text of the response is equal to index.html
-        //             done();
-        //         });
-        // });
-    });
+        it('it should GET the index.html', function(done) {
+            chai.request(server)
+                .get('/')
+                .end(function(err, res) {
+                    // TODO: using the should style check that 
+                    // a) the response's HTTP response status is 
+                    // b) that the response is in HTML form
+                    // c) the text of the response is equal to index.html
+                    res.should.have.status(200);
+                    res.text.should.equal(index);                                   
+                    done();
+                });
+        });
 
     /*
     * Test the /classical route, should receive homer.html
@@ -75,19 +75,19 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the homer.html')
-        // TODO uncomment the needed parts
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/classical')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 
-        //             // b) that the response is in HTML form
-        //             // c) the text of the response is equal to homer.html
-        //             done();
-        //         });
-        // });
+        it('it should GET the homer.html', function(done) {
+            chai.request(server)
+                .get('/classical')
+                .end(function(err, res) {
+                    // TODO: using the should style check that 
+                    // a) the response's HTTP response status is 
+                    // b) that the response is in HTML form
+                    // c) the text of the response is equal to homer.html
+                    res.should.have.status(200);
+                    res.text.should.equal(homer); 
+                    done();
+                });
+        });
     });
 
     /*
@@ -100,17 +100,19 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the bradbury.html')
-        //     , (done) => {
-        //         chai.request(server)
-        //             .get('/modern')
-        //             .end((err, res) => {
-        //                 // TODO: using the should style check that 
-        //                 // a) the response's HTTP response status is 
-        //                 // b) that the response is in HTML form
-        //                 // c) the text of the response is equal to bradbury.html
-        //                 done();
-        //             });
-        //     });
+        it('it should GET the bradbury.html', function(done) {
+                chai.request(server)
+                    .get('/modern')
+                    .end(function(err, res) {
+                        // TODO: using the should style check that 
+                        // a) the response's HTTP response status is 
+                        // b) that the response is in HTML form
+                        // c) the text of the response is equal to bradbury.html
+                        res.should.have.status(200);
+                    res.text.should.equal(bradbury); 
+                        done();
+                    });
+            });
     });
-});
+
+})})});
