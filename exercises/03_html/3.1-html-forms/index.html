@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1 HTML Forms</title>
+</head>
+<body>
+    <h1>3.1 HTML Forms</h1>
+
+    <h2 id="form1">Form 1</h2>
+    <form action="http://localhost:3000/" method="GET">
+        <p> <input type="hidden" name="hidden" value="Hello from form1"> </p>
+        <p> <input type="text" name="text" required>
+        <input type="submit" value="Send Form 1"> </p>
+    </form>
+
+    <h2 id="form2">Form 2</h2>
+    <form action="http://localhost:3000/" method="POST">
+        <p> <input type="hidden" name="hidden" value="Hello from form2"> </p>
+        <textarea name="message" rows="15" cols="35"> </textarea>
+        <input type="submit" value="Send Form 2">
+    </form>
+
+</body>
+</html>
