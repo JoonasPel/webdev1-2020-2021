@@ -20,7 +20,7 @@ var server = http.createServer(function(req, res){
         });
     } else {
         res.statusCode = 405;
-        res.setHeader('Allow: GET, POST');
+        res.setHeader('Allow', ['GET', 'POST']);
     }
     
 });
