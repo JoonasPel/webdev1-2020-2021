@@ -20,6 +20,7 @@ form.addEventListener('submit', function (event) {
     template_email.textContent = email.value;
 
     var template_homepage = clone.querySelector("p > a");
+    template_homepage.removeAttribute("href");
     template_homepage.textContent = homepage.value;
 
     //append the cloned node
