@@ -12,6 +12,7 @@
     <h1>
         Accessibility demo
     </h1>
+
     <ul>
         <li>
             <a href="https://google.com">Google</a>
@@ -29,26 +30,28 @@
             <a href="https://www.google.com/chrome/">Chrome</a>
         </li>
     </ul>
+
     <hr>
     <h2 id="information">Your information</h2>
     <form>
         <p>Name:</p>
-        <input id="name" autocomplete="off">
+        <input id="name" autocomplete="off" aria-label="Your name">
         <p>homePage:</p>
-        <input id="homePage" autocomplete="off">
+        <input id="homePage" autocomplete="off" aria-label="Your homepage">
         <p>Email:</p>
-        <input id="email" autocomplete="off">
+        <input id="email" autocomplete="off" aria-label="Your email">
         <p>Password:</p>
-        <input id="password" autocomplete="off">
+        <input id="password" autocomplete="off" aria-label="Your password">
         <p>Favorite city</p>
-        <select id="favoriteCity" name="select">
+        <select id="favoriteCity" name="select" aria-label="Select your favorite city">
             <option value="1">Amsterdam</option>
             <option value="2">London</option>
             <option value="3">Moscow</option>
             <option value="4">Los Angeles</option>
             <option value="5">New York</option>
         </select>
-        <img src="submit.png" style="display:block; width: 200px; height: 200px;">
+        <img src="submit.png" style="display:block; width: 200px; height: 200px;"
+        alt ="Image of a submit">
     </form>
 
 </body>
