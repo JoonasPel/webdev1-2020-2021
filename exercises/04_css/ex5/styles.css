@@ -74,8 +74,8 @@ footer{
     padding: 1.5rem;
 
     @media only screen and (min-width: 600px) {
-        grid-template-areas: "n1"
-                             "n2";  
+        grid-template-areas: "n1 ."
+                             "n2 .";  
     }
     @media only screen and (min-width: 992px) {
         grid-template-areas: "n1 n2 .";  
