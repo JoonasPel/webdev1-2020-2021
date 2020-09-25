@@ -34,8 +34,8 @@ aside {
 article {
   display: grid;
   font-size: 1.5em;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 
@@ -43,7 +43,7 @@ footer {
   display: grid;
   width: 100%;
   min-height: 15%;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 nav {
