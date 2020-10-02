@@ -5,7 +5,37 @@
  * @param {HTMLTableElement} table the table to be sorted
  */
 function sortTableByColumn(col, table) {
-  // TODO: Implement this function
+
+  //true for ascending sorting, false for descending
+  var ascending = true;
+  //variables needed in sorting
+  var keep_looping = true;
+  var make_switch = false;
+  var x;
+  var y;
+
+  while(keep_looping) {
+
+    keep_looping = false;
+
+    for(i = 1; i < (table.rows.length - 1); i++) {
+      make_switch = false;
+
+      x = table.rows[i].getElementsByTagName("td")[col];
+      y = table.rows[i + 1].getElementsByTagName("td")[col];
+
+      if((x.textContent.localeCompare(y.textContent) > 0) === ascending) {
+        make_switch = true;
+        break;
+      }
+    }
+
+    if(make_switch) {
+      //switch rows
+      table.rows[i].parentNode.insertBefore(table.rows[i + 1], table.rows[i]);
+      keep_looping = true;
+    }
+  }
 }
 
 /**
