@@ -9,7 +9,6 @@ function data_received(event) {
 
     //json data parsed to array
     var arr = JSON.parse(event.detail.jsonText);
-    console.log(arr);
 
     var clone, temp_name, temp_email, temp_phone, temp_address, temp_homepage,
     temp_avatar;
@@ -44,8 +43,5 @@ function data_received(event) {
         //append data
         div_contacts.appendChild(clone);
     }
-
 }
-
-
 fetchUserData();
