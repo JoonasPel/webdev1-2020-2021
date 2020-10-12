@@ -5,8 +5,19 @@
  * be of format 'Parameter is not a number!'
  */
 const f = (value) => {
-  throw "Not yet implemented!";
-}
+
+  const promise_value = new Promise(
+    function (resolve, reject) {
+
+      if(typeof value != "number") {
+        reject('Parameter is not a number!');
+      } else {
+        resolve(value);
+      }
+
+    });
+  return promise_value;
+};
 
 /**
  * TODO: Implement a function 'g' that calls the previously made function 'f'.
@@ -15,8 +26,8 @@ const f = (value) => {
  * @param {number} value
  */
 const g = (value) => {
-  throw "Not yet implemented!";
-}
+
+};
 
 /**
  * TODO: Implement a function 'checkIfFunction'.
@@ -28,7 +39,18 @@ const g = (value) => {
  * a rejected Promise with message "Not a function!" otherwise
  */
 const checkIfFunction = (param) => {
-  throw "Not yet implemented!";
+
+  const prom = new Promise(
+    function (resolve, reject) {
+
+      if(typeof param == "function") {
+        resolve(true);
+      } else {
+        reject('Not a function!');
+      }
+    });
+
+  return prom;
 }
 
 /**
@@ -39,7 +61,19 @@ const checkIfFunction = (param) => {
  * @returns {an empty Promise after a given time}, if time is acceptable
  */
 const p = (time) => {
-  throw "Not yet implemented!";
+
+  const prom_timeout = new Promise(
+    function (resolve, reject) {
+      if (typeof time != "number") {
+        reject('Not a number!');
+      } else if (time > 2000) {
+        reject("Too long time!");
+      } else {
+        setTimeout(resolve(), time);
+      }
+    });
+
+    return prom_timeout;
 };
 
 //TODO: Verify that all functions are exported for tests
@@ -49,4 +83,6 @@ exports.checkIfFunction = checkIfFunction;
 exports.p = p;
 
 // TODO: Install testing packages with npm install
+//Done (npm install mocha)
+
 // TODO: Run the tests with npm test
