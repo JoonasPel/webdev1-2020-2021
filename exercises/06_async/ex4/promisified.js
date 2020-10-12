@@ -10,7 +10,14 @@
  * @param {*} i the index of an array
  */
 async function drawArrows(actors, timeout, drawArrow, i=0) {
-
+    if(i === actors.length*2-2) {
+        return;
+    } else {
+        const prom = new Promise(function(resolve, reject) {
+            drawArrow(i, timeout, actors.length-1);
+            setTimeout( () => resolve(drawArrows(actors, timeout, drawArrow, i+1)), timeout);
+        });
+    }
 };
 
 
