@@ -11,19 +11,17 @@
  * @param {*} i the index of the arrow
  */
 async function drawArrows(actors, timeout, drawArrow, i = 0) {
-    
     while(i < actors.length*2-2) {
         await draw_one_Arrow(i, timeout, actors.length-1, drawArrow);
         ++i;
     };
-
 };
 
 function draw_one_Arrow(i, timeout, length, drawArrow) {
-    return new Promise(function(resolve) {
-        setTimeout(function(){resolve(drawArrow(i, timeout, length));}
-        , timeout);
-        });
+    drawArrow(i, timeout, length);
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), timeout); 
+    });
 };
 
 
