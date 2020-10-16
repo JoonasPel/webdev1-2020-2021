@@ -135,3 +135,6 @@ dist
 # solution files
 solution.*
 solution?.*
+
+#debug folder
+.vscode/
